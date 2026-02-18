@@ -819,7 +819,7 @@ Behind the scenes:
 
 ---
 
-# Common Algorithms
+## Common Algorithms
 
 * Self-Training
 * Label Propagation
@@ -828,7 +828,7 @@ Behind the scenes:
 
 ---
 
-# Mathematical Objective
+## Mathematical Objective
 
 Total loss becomes combination of supervised and unsupervised parts:
 
@@ -1016,3 +1016,270 @@ Long-term reward, not immediate correctness.
 
 ---
 
+# 1️⃣ Supervised Learning – Real-World Applications
+
+## 🔹 Where It Dominates
+
+Used when labeled historical data is available.
+
+---
+
+## A. Finance & FinTech
+
+### Regression
+
+* Credit risk scoring
+* Loan default probability prediction
+* Stock price forecasting
+* Insurance premium estimation
+
+### Classification
+
+* Fraud detection
+* Credit approval (approve / reject)
+* Customer churn prediction
+* Anti-money laundering flagging
+
+---
+
+## B. Healthcare
+
+### Classification
+
+* Disease diagnosis (cancer detection)
+* Medical image classification
+* ICU mortality prediction
+
+### Regression
+
+* Hospital stay duration prediction
+* Drug dosage prediction
+* Disease progression modeling
+
+---
+
+## C. E-commerce
+
+### Classification
+
+* Spam review detection
+* Product return prediction
+* Customer segmentation (supervised segmentation)
+
+### Regression
+
+* Demand forecasting
+* Revenue prediction
+* Dynamic pricing
+
+---
+
+## D. Computer Vision
+
+* Image classification
+* Face recognition
+* Object detection
+* Autonomous driving perception systems
+
+Dominant type here:
+Deep supervised learning.
+
+---
+
+## E. NLP (Natural Language Processing)
+
+* Sentiment analysis
+* Text classification
+* Named entity recognition
+* Machine translation
+
+---
+
+# 2️⃣ Unsupervised Learning – Real-World Applications
+
+## 🔹 Where It Dominates
+
+When labels are unavailable or unknown.
+
+---
+
+## A. Customer Segmentation
+
+Type: Clustering
+
+* Retail segmentation
+* Telecom user grouping
+* Marketing persona generation
+
+Domain: Marketing Analytics
+
+---
+
+## B. Recommendation Systems (Preprocessing)
+
+Type: Dimensionality Reduction + Clustering
+
+* Embedding generation
+* User behavior grouping
+* Collaborative filtering preprocessing
+
+Domain: Big Tech (Amazon, Netflix, YouTube)
+
+---
+
+## C. Fraud & Security
+
+Type: Anomaly Detection
+
+* Credit card fraud detection
+* Intrusion detection systems
+* Network traffic monitoring
+
+Domain: Cybersecurity
+
+---
+
+## D. Manufacturing
+
+Type: Anomaly Detection
+
+* Defect detection
+* Equipment failure prediction
+* Sensor data monitoring
+
+Domain: Industrial IoT
+
+---
+
+## E. Retail Analytics
+
+Type: Association Rule Learning
+
+* Market basket analysis
+* Cross-selling strategy
+* Product bundling optimization
+
+Domain: Retail chains, supermarkets
+
+---
+
+# 3️⃣ Semi-Supervised Learning – Real-World Applications
+
+## 🔹 Where Labeling is Expensive
+
+---
+
+## A. Medical Imaging
+
+* MRI tumor detection
+* Rare disease classification
+* Pathology slide analysis
+
+Reason:
+Labeled data is scarce and costly.
+
+---
+
+## B. Speech Recognition
+
+* Voice assistants
+* Accent adaptation
+* Language modeling
+
+Companies:
+Google, Amazon, Apple
+
+---
+
+## C. Face Recognition
+
+* Social media tagging
+* Surveillance systems
+* Identity verification
+
+---
+
+## D. Autonomous Driving
+
+* Object detection with limited labeled frames
+* Scene segmentation
+
+---
+
+## E. NLP Large Models
+
+Modern LLM pretraining uses:
+
+* Massive unlabeled data
+* Fine-tuning on small labeled datasets
+
+---
+
+# 4️⃣ Reinforcement Learning – Real-World Applications
+
+## 🔹 Where Sequential Decision Making Matters
+
+---
+
+## A. Robotics
+
+* Robot arm control
+* Warehouse automation
+* Drone navigation
+
+---
+
+## B. Autonomous Vehicles
+
+* Lane change decision
+* Route optimization
+* Adaptive cruise control
+
+---
+
+## C. Game AI
+
+* Chess engines
+* Go
+* Strategy games
+
+---
+
+## D. Trading & Finance
+
+* Portfolio optimization
+* Algorithmic trading
+* Market-making strategies
+
+---
+
+## E. Recommendation Systems
+
+* Dynamic content ranking
+* Ad placement optimization
+* Personalized feeds
+
+---
+
+# Summary Table
+
+| Domain             | Supervised | Unsupervised | Semi-Supervised | Reinforcement |
+| ------------------ | ---------- | ------------ | --------------- | ------------- |
+| Finance            | High       | Medium       | Low             | Medium        |
+| Healthcare         | High       | Medium       | High            | Low           |
+| Retail             | High       | High         | Low             | Low           |
+| Cybersecurity      | Medium     | High         | Low             | Low           |
+| Robotics           | Low        | Low          | Low             | High          |
+| Autonomous Systems | Medium     | Low          | Medium          | High          |
+| NLP                | High       | Medium       | High            | Medium        |
+
+---
+
+# Important Industry Insight
+
+1. Supervised Learning dominates production systems.
+2. Unsupervised is mostly used for preprocessing or discovery.
+3. Semi-supervised is growing fast in medical and AI research.
+4. Reinforcement Learning is powerful but expensive and complex to deploy.
+
+---
