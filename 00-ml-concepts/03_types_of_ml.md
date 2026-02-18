@@ -661,7 +661,7 @@ If Lift > 1 → strong association.
 
 ---
 
-# Key Differences from Supervised Learning
+## Key Differences from Supervised Learning
 
 | Aspect        | Supervised        | Unsupervised             |
 | ------------- | ----------------- | ------------------------ |
@@ -672,7 +672,7 @@ If Lift > 1 → strong association.
 
 ---
 
-# Important Insight
+## Important Insight
 
 Unsupervised learning does not "predict output".
 
@@ -682,5 +682,192 @@ It discovers:
 * Distribution
 * Similarity
 * Latent features
+
+---
+
+# Semi-Supervised Learning
+
+## Classical Definition
+
+Semi-Supervised Learning is a machine learning approach where the model is trained using:
+
+* A small amount of labeled data
+* A large amount of unlabeled data
+
+Formally:
+
+We have dataset:
+
+$$
+D = D_L \cup D_U
+$$
+
+Where:
+
+$$
+D_L = {(x_1, y_1), ..., (x_l, y_l)}
+$$
+
+Labeled dataset
+
+and
+
+$$
+D_U = {x_{l+1}, ..., x_{l+u}}
+$$
+
+Unlabeled dataset
+
+with:
+
+$$
+u \gg l
+$$
+
+Meaning: unlabeled data is much larger than labeled data.
+
+---
+
+# Core Idea
+
+Instead of ignoring unlabeled data, the model uses structure in $D_U$ to improve learning.
+
+The assumption:
+
+> Data points close to each other are likely to share the same label.
+
+This is called the **Cluster Assumption**.
+
+---
+
+# Visual Overview
+
+![Image](https://images.prismic.io/superpupertest/f3517801-371b-4be8-95f0-f18b3b7804f2_How-does-supervised-learning-work.webp?auto=compress%2Cformat\&dpr=3)
+
+![Image](https://miro.medium.com/1%2A25tiPu7Dfgg0D_sB-tDYbA.png)
+
+![Image](https://www.researchgate.net/publication/348321139/figure/fig1/AS%3A977543393980417%401610075915777/A-toy-example-of-label-propagation-LP-on-graphs-where-the-dark-blue-and-red-nodes.png)
+
+![Image](https://www.researchgate.net/publication/340627329/figure/fig2/AS%3A880226183704577%401586873684535/An-example-of-the-Label-Propagation-Algorithm.ppm)
+
+---
+
+# How Semi-Supervised Learning Works
+
+## Step 1: Train on Labeled Data
+
+Train model using:
+
+$$
+L(y, \hat{y})
+$$
+
+on small labeled dataset $D_L$.
+
+---
+
+## Step 2: Predict on Unlabeled Data
+
+For each $x \in D_U$:
+
+Model computes:
+
+$$
+\hat{y} = f(x; \theta)
+$$
+
+If prediction confidence is high:
+
+$$
+P(\hat{y} \mid x) > \tau
+$$
+
+Then assign pseudo-label:
+
+$$
+(x, \hat{y})
+$$
+
+---
+
+## Step 3: Retrain Model
+
+Combine:
+
+$$
+D_L \cup \text{Pseudo-Labeled Data}
+$$
+
+Retrain model for better generalization.
+
+---
+
+# Real-Life Example
+
+## Google Photos Face Recognition
+
+* You label few images as "Papa"
+* System learns facial embedding pattern
+* It finds similar faces in unlabeled photos
+* High similarity → auto-labels as "Papa"
+
+Behind the scenes:
+
+* Feature embedding network
+* Similarity clustering
+* Confidence threshold
+
+---
+
+# Common Algorithms
+
+* Self-Training
+* Label Propagation
+* Semi-Supervised SVM
+* Consistency Regularization (used in deep learning)
+
+---
+
+# Mathematical Objective
+
+Total loss becomes combination of supervised and unsupervised parts:
+
+$$
+J(\theta) =
+\underbrace{L_{supervised}}*{\text{on } D_L}
++
+\lambda
+\underbrace{L*{unsupervised}}_{\text{on } D_U}
+$$
+
+Where:
+
+* $\lambda$ controls influence of unlabeled data
+* $L_{unsupervised}$ often enforces consistency or smoothness
+
+---
+
+# Why Use Semi-Supervised Learning?
+
+Labeling data is expensive.
+
+Examples:
+
+* Medical imaging
+* Speech recognition
+* Face recognition
+* Industrial inspection
+
+But raw data is abundant.
+
+Semi-supervised learning reduces labeling cost while improving accuracy.
+
+---
+
+# Key Assumptions
+
+1. Cluster assumption
+2. Manifold assumption
+3. Smoothness assumption
 
 ---
