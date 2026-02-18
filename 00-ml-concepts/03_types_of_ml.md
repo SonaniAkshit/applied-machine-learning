@@ -329,7 +329,7 @@ Else → Class 0
 
 ---
 
-# Key Differences: Regression vs Classification
+## Key Differences: Regression vs Classification
 
 | Aspect       | Regression   | Classification |
 | ------------ | ------------ | -------------- |
@@ -340,7 +340,7 @@ Else → Class 0
 
 ---
 
-# Important Concepts in Supervised Learning
+## Important Concepts in Supervised Learning
 
 * Labeled Data Required
 * Feature Engineering
@@ -348,5 +348,339 @@ Else → Class 0
 * Overfitting & Underfitting
 * Bias-Variance Tradeoff
 * Evaluation Metrics (RMSE, Accuracy, F1-score, etc.)
+
+---
+
+# Unsupervised Learning
+
+## Classical Definition
+
+Unsupervised Learning is a type of Machine Learning where the model learns patterns, structure, or relationships from **unlabeled data**.
+
+Unlike supervised learning, there is **no target variable $Y$**.
+
+We are given only:
+
+$$
+X = {x_1, x_2, ..., x_n}
+$$
+
+The goal is to discover hidden structure in data.
+
+---
+
+# Core Idea
+
+Given dataset:
+
+$$
+D = {x_1, x_2, ..., x_n}
+$$
+
+Each data point:
+
+$$
+x_i \in \mathbb{R}^d
+$$
+
+There is **no label $y_i$**.
+
+The model tries to:
+
+* Group similar data points
+* Reduce dimensions
+* Detect rare patterns
+* Discover associations
+
+---
+
+## Visual Overview
+
+![Image](https://images.openai.com/static-rsc-3/OC3fWRRLarHMcP1VTQlhW0mUTZ4y80CiBJjT5LvPDX_gWnzYc_aPuikd08614zAq72_Nmkk2-VnbXYhs0HnsF8w43XEkXTBuoEoa1YePzd8?purpose=fullsize\&v=1)
+
+![Image](https://www.researchgate.net/publication/344017242/figure/fig2/AS%3A930941392396290%401598965132245/Cluster-Visualization-for-the-2D-3D-k-Means-Algorithm.png)
+
+![Image](https://substackcdn.com/image/fetch/%24s_%21_xRi%21%2Cf_auto%2Cq_auto%3Agood%2Cfl_progressive%3Asteep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fa00f3301-9f4f-4de3-a5bb-dc8866c1afc4_819x580.png)
+
+![Image](https://miro.medium.com/1%2AT7CqlFV5aRm6MxO5nJt7Qw.gif)
+
+---
+
+# Types of Unsupervised Learning
+
+---
+
+# 1️⃣ Clustering
+
+## Definition
+
+Clustering is the task of grouping similar data points together such that:
+
+* Points within same cluster are similar
+* Points in different clusters are dissimilar
+
+---
+
+## Mathematical Objective (K-Means Example)
+
+Minimize within-cluster variance:
+
+$$
+J = \sum_{k=1}^{K} \sum_{x_i \in C_k} ||x_i - \mu_k||^2
+$$
+
+Where:
+
+* $K$ = number of clusters
+* $C_k$ = cluster k
+* $\mu_k$ = centroid of cluster k
+
+Goal: minimize total squared distance from cluster center.
+
+---
+## Visual Concept
+
+
+![Image](https://i.sstatic.net/VqdbM.png)
+
+![Image](https://uc-r.github.io/public/images/analytics/clustering/hierarchical/unnamed-chunk-13-1.png)
+
+![Image](https://www.researchgate.net/publication/377173830/figure/fig2/AS%3A11431281361502724%401744122148309/Visualization-of-DBSCAN-clustering-algorithm.tif)
+
+![Image](https://www.sthda.com/sthda/RDoc/figure/clustering/dbscan-density-based-clustering-dbscan-factoextra-ggplot2-1.png)
+
+## What It Shows
+
+* Data points divided into multiple groups
+* Each cluster has internal similarity
+* Different clusters are separated
+---
+## Real-Life Example
+
+Student dataset:
+
+| IQ  | CGPA |
+| --- | ---- |
+| 85  | 7.5  |
+| 110 | 9.0  |
+| 70  | 6.5  |
+
+Model may create:
+
+* High performance cluster
+* Medium performance cluster
+* Low performance cluster
+
+After clustering, you may assign business labels.
+
+Important: Labels are assigned **after clustering**, not during training.
+
+---
+
+# 2️⃣ Dimensionality Reduction
+
+## Definition
+
+Dimensionality Reduction transforms high-dimensional data into lower-dimensional space while preserving maximum information.
+
+If:
+
+$$
+x_i \in \mathbb{R}^{100}
+$$
+
+We transform into:
+
+$$
+z_i \in \mathbb{R}^{2}
+$$
+
+---
+
+## Mathematical Objective (PCA)
+
+Maximize variance:
+
+$$
+\max ; Var(w^T X)
+$$
+
+Subject to:
+
+$$
+||w|| = 1
+$$
+
+PCA finds direction of maximum variance.
+
+---
+## Visual Concept
+
+
+![Image](https://www.researchgate.net/publication/345602552/figure/fig1/AS%3A1028064637104131%401622121118891/PCA-Example-3D-to-2D.png)
+
+![Image](https://builtin.com/sites/www.builtin.com/files/inline-images/national/Principal%2520Component%2520Analysis%2520second%2520principal.gif)
+
+![Image](https://www.mathworks.com/help/examples/stats/win64/VisualizeHighDimensionalDataUsingTSNEExample_01.png)
+
+![Image](https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/T-SNE_visualisation_of_word_embeddings_generated_using_19th_century_literature.png/1280px-T-SNE_visualisation_of_word_embeddings_generated_using_19th_century_literature.png)
+
+## What It Shows
+
+* High-dimensional data projected into 2D
+* Maximum variance direction preserved
+* Useful for visualization
+
+---
+## Real-Life Example
+
+* Image dataset with 784 pixels
+* Reduce to 50 principal components
+* Faster computation
+* Less noise
+
+Not just for “model fit”, but for:
+
+* Visualization
+* Noise reduction
+* Speed
+
+---
+
+# 3️⃣ Anomaly Detection
+
+## Definition
+
+Anomaly Detection identifies rare data points that significantly differ from majority distribution.
+
+---
+
+## Mathematical View (Density-Based)
+
+Estimate probability density:
+
+$$
+p(x)
+$$
+
+If:
+
+$$
+p(x) < \epsilon
+$$
+
+Then point is anomaly.
+
+---
+## Visual Concept
+
+
+![Image](https://www.researchgate.net/publication/342155553/figure/fig3/AS%3A1004399522492439%401616478915973/Scatter-plot-of-the-results-from-LOF.png)
+
+![Image](https://www.researchgate.net/profile/Jason-Mckenna/publication/381710897/figure/fig1/AS%3A11431281255160847%401719409715744/solation-forest-analysis-visualization-The-isolation-forest-was-fitted-on-the-entire_Q320.jpg)
+
+![Image](https://miro.medium.com/v2/resize%3Afit%3A1400/1%2A2whcqVti2YUeAw6SOaMTQQ.png)
+
+![Image](https://miro.medium.com/v2/resize%3Afit%3A1400/0%2AC5gZBpC57Pdbnnik)
+
+## What It Shows
+
+* Normal data clustered together
+* One or few points far from distribution
+* Those are anomalies
+
+---
+## Real-Life Example
+
+Credit card transactions:
+
+* Normal transactions cluster together
+* Rare unusual transaction → anomaly
+
+Used in:
+
+* Fraud detection
+* Network security
+* Manufacturing defect detection
+
+---
+
+# 4️⃣ Association Rule Learning
+
+## Definition
+
+Association Rule Learning discovers relationships between variables in transactional data.
+
+---
+
+## Example (Market Basket Analysis)
+
+If customers buy:
+
+Milk → Eggs
+
+We compute:
+
+### Support
+
+$$
+Support(A) = \frac{\text{Number of transactions containing A}}{\text{Total transactions}}
+$$
+
+### Confidence
+
+$$
+Confidence(A \rightarrow B) = \frac{Support(A \cap B)}{Support(A)}
+$$
+
+### Lift
+
+$$
+Lift = \frac{Confidence(A \rightarrow B)}{Support(B)}
+$$
+
+If Lift > 1 → strong association.
+
+---
+## Visual Concept
+
+
+![Image](https://ars.els-cdn.com/content/image/3-s2.0-B978012381479100006X-f06-01-9780123814791.jpg)
+
+![Image](https://www.researchgate.net/publication/352111791/figure/fig4/AS%3A11431281122742143%401677516536278/Flow-chart-of-the-Apriori-algorithm.jpg)
+
+![Image](https://www.researchgate.net/publication/337999958/figure/fig1/AS%3A867641866604545%401583873349676/Formulae-for-support-confidence-and-lift-for-the-association-rule-X-Y.ppm)
+
+![Image](https://www.researchgate.net/publication/337999958/figure/fig1/AS%3A867641866604545%401583873349676/Formulae-for-support-confidence-and-lift-for-the-association-rule-X-Y_Q320.jpg)
+
+## What It Shows
+
+* Item relationships
+* Frequent itemsets
+* Strong rule connections
+
+---
+
+# Key Differences from Supervised Learning
+
+| Aspect        | Supervised        | Unsupervised             |
+| ------------- | ----------------- | ------------------------ |
+| Labels        | Required          | Not required             |
+| Goal          | Predict output    | Discover structure       |
+| Loss Function | Defined w.r.t Y   | Often internal objective |
+| Example       | Salary prediction | Customer segmentation    |
+
+---
+
+# Important Insight
+
+Unsupervised learning does not "predict output".
+
+It discovers:
+
+* Structure
+* Distribution
+* Similarity
+* Latent features
 
 ---
