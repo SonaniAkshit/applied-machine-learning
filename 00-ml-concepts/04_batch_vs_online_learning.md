@@ -188,7 +188,7 @@ For incoming data point ( (x_t, y_t) ):
 
 Where:
 
-* (\eta ) = learning rate
+* ( \eta ) = learning rate
 * Update happens immediately
 
 This is similar to:
