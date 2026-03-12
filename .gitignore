@@ -3,3 +3,15 @@
 # Mathematical Symbols in Machine Learning.md
 
 # core notes
+
+note.cmd
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Ignore checkpoints inside any subfolder
+**/.ipynb_checkpoints/
+
+# Optional: Python cache
+__pycache__/
+*.pyc
