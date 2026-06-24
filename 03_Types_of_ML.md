@@ -259,12 +259,12 @@ graph TD
 Before Labeling:              After Labeling One:
 ┌────────────┐                ┌────────────┐
 │  Cluster 1 │                │  Dad (200) │
-│ (200 photos)│   ──→         │ ✓ Labeled  │
+│(200 photos)│    ──→         │ ✓ Labeled  │
 └────────────┘                └────────────┘
 
 ┌────────────┐                ┌────────────┐
 │  Cluster 2 │                │  Mom (150) │
-│ (150 photos)│   ──→         │ ✓ Labeled  │
+│(150 photos)│    ──→         │ ✓ Labeled  │
 └────────────┘                └────────────┘
 ```
 
